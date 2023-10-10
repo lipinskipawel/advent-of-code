@@ -1,0 +1,4 @@
+https://www.lua.org/manual/5.4/
+https://learnxinyminutes.com/docs/lua/
+https://devhints.io/lua
+
