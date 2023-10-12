@@ -71,7 +71,7 @@ local function winPoints(round)
   end
 end
 
-local function newWinPoints(round)
+local function winPointsSecond(round)
   if round.recommendation == 'X' then
     return 0;
   end
@@ -119,14 +119,14 @@ local function pointsForDraw(round)
   end
 end
 
-local function scoreForRound(round)
-  -- first problem
-  -- local piecePoints = iterate('piece', round.recommendation, pieceValue, 'value');
-  -- local winPoints = winPoints(round);
-  -- return piecePoints + winPoints;
+local function scoreForRoundFirst(round)
+  local piecePoints = iterate('piece', round.recommendation, pieceValue, 'value');
+  local winPoints = winPoints(round);
+  return piecePoints + winPoints;
+end
 
-
-  local winPoints = newWinPoints(round);
+local function scoreForRoundSecond(round)
+  local winPoints = winPointsSecond(round);
   local piecePoints = 0;
   if winPoints == 6 then
     piecePoints = pointsForWin(round);
@@ -142,7 +142,13 @@ end
 
 local result = 0;
 for _, val in pairs(strategy) do
-  result = result + scoreForRound(val);
+  result = result + scoreForRoundFirst(val);
+end
+print(result);
+
+local result = 0;
+for _, val in pairs(strategy) do
+  result = result + scoreForRoundSecond(val);
 end
 
 print(result);
