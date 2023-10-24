@@ -1,21 +1,19 @@
-local M = {};
-
+local M = {}
 
 function M.printTable(table)
-  for _, value in pairs(table) do
-   print(value);
-  end
+    for _, value in pairs(table) do
+        print(value)
+    end
 end
 
 function M.max(table)
-  local max = 0;
-  for _, value in pairs(table) do
-    if max < value then
-      max = value;
+    local max = 0
+    for _, value in pairs(table) do
+        if max < value then
+            max = value
+        end
     end
-  end
-  return max;
+    return max
 end
 
-return M;
-
+return M
