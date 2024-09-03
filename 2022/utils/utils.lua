@@ -16,4 +16,13 @@ function M.max(table)
     return max
 end
 
+function M.contains(array, element)
+    for _, v in ipairs(array) do
+        if v == element then
+            return true
+        end
+    end
+    return false
+end
+
 return M
